@@ -1,0 +1,224 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: "Manrope", system-ui, sans-serif;
+  background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(232, 121, 249, 0.08), transparent 55%),
+    rgb(5 5 10);
+  min-height: 100vh;
+}
+
+.background-canvas {
+  overflow: hidden;
+}
+
+.grid-field {
+  position: absolute;
+  inset: -5%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.grid-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 0);
+  background-size: 56px 56px;
+  opacity: 0.28;
+  transform-origin: center;
+  animation: grid-scroll 30s linear infinite;
+  filter: blur(0.3px);
+}
+
+.ambient-glow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at center, rgba(45, 212, 191, 0.28) 0%, rgba(168, 85, 247, 0.18) 50%, transparent 75%);
+  opacity: 0.35;
+  animation: glow-drift 36s linear infinite;
+  mix-blend-mode: screen;
+  filter: blur(120px);
+}
+
+.ambient-glow--two {
+  inset: -15%;
+  animation-duration: 42s;
+  animation-direction: reverse;
+  opacity: 0.28;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.24) 0%, rgba(20, 184, 166, 0.18) 45%, transparent 78%);
+}
+
+.orb {
+  filter: blur(76px);
+  opacity: 0.58;
+  mix-blend-mode: screen;
+  animation: orb-lumen 16s ease-in-out infinite, orb-drift 32s ease-in-out infinite;
+}
+
+.background-canvas .orb:nth-of-type(1) {
+  animation-duration: 18s, 36s;
+  animation-delay: 0s, -6s;
+}
+
+.background-canvas .orb:nth-of-type(2) {
+  animation-duration: 20s, 40s;
+  animation-delay: 1.2s, -12s;
+}
+
+.background-canvas .orb:nth-of-type(3) {
+  animation-duration: 22s, 34s;
+  animation-delay: 0.8s, -18s;
+}
+
+@keyframes grid-scroll {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position: 0px 0px, 0px 0px;
+  }
+  100% {
+    transform: translate3d(-6%, 0, 0) scale(1.02);
+    background-position: -320px 0px, -160px 0px;
+  }
+}
+
+@keyframes glow-drift {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.08);
+  }
+  100% {
+    transform: rotate(90deg) scale(1);
+  }
+}
+
+@keyframes orb-lumen {
+  0% {
+    filter: blur(68px);
+    opacity: 0.36;
+  }
+  45% {
+    filter: blur(96px);
+    opacity: 0.78;
+  }
+  100% {
+    filter: blur(70px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(22px, -18px, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+}
+.dex-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.dex-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  animation: dex-marquee var(--dex-duration, 32s) linear infinite;
+}
+
+.dex-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.dex-marquee-card {
+  transition: transform 0.3s ease;
+}
+
+.dex-marquee-card:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes dex-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.neon-card {
+  position: relative;
+  border-radius: 28px;
+  background: var(--neon-base, rgba(12, 18, 28, 0.72));
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+  will-change: transform, box-shadow;
+}
+
+.neon-card::before,
+.neon-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.neon-card::before {
+  padding: 1.5px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 80deg,
+    var(--neon-color, rgba(34, 211, 238, 0.85)) 110deg 150deg,
+    transparent 180deg 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  animation: neon-orbit 4.2s linear infinite;
+  transition: opacity 0.45s ease;
+}
+
+.neon-card::after {
+  background: radial-gradient(120% 120% at 50% 0%, var(--neon-soft, rgba(34, 211, 238, 0.18)) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.neon-card:hover {
+  box-shadow: var(--neon-shadow, 0 18px 44px -18px rgba(34, 211, 238, 0.55));
+  transform: translateY(-8px);
+}
+
+.neon-card:hover::before,
+.neon-card:hover::after {
+  opacity: 1;
+}
+
+@keyframes neon-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

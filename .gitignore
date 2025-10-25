@@ -1,0 +1,15 @@
+node_modules
+dist
+Pitch-Deck/
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+vite-dev.log
+vite-dev.err
+*.patch
+.env
+.env.local
+.vercel
+.vscode
