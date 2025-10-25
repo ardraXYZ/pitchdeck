@@ -1,6 +1,7 @@
 node_modules
 dist
 Pitch-Deck/
+.vite
 .DS_Store
 Thumbs.db
 npm-debug.log*
