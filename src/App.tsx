@@ -797,7 +797,7 @@ const App: React.FC = () => {
                 },
                 {
                   users: "5,000 users",
-                  volume: "$285,555,355 daily volume",
+                  volume: "$280,555,357 daily volume",
                   reward: "$8,280 rewards / day",
                   feeInfo: "Avg. fee 10%",
                   affiliate: "Affiliate program OFF",
@@ -806,7 +806,7 @@ const App: React.FC = () => {
                 },
                 {
                   users: "10,000 users",
-                  volume: "$571,110,710 daily volume",
+                  volume: "$561,110,714 daily volume",
                   reward: "$33,120 rewards / day",
                   feeInfo: "Avg. fee 20%",
                   affiliate: "Affiliate program ON",
@@ -815,7 +815,7 @@ const App: React.FC = () => {
                 },
                 {
                   users: "30,000 users",
-                  volume: "$1,713,332,130 daily volume",
+                  volume: "$1,683,332,142 daily volume",
                   reward: "$99,360 rewards / day",
                   feeInfo: "Avg. fee 20%",
                   affiliate: "Affiliate program ON",
