@@ -8,13 +8,14 @@ import React, {
   type CSSProperties
 } from "react";
 import anime from "animejs";
-import { AlertTriangle, ArrowLeft, ArrowRight, BarChart3, CheckCircle2, Users } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, BarChart3, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import mvpImage from "../Images/MVP.png";
 import clealjImage from "../Images/Team/Clealj.png";
+import madbroImage from "../Images/Team/Madbro.jpg";
 import ardraLogo from "../Images/Ardra Assets/ArdraLogo.png";
 import apexLogo from "../Images/Support/Apex.png";
 import asterLogo from "../Images/Support/Aster.png";
@@ -36,16 +37,15 @@ type NeonTone = "emerald" | "crimson" | "cyan" | "violet";
 
 const slides: SlideDefinition[] = [
   { id: "intro", label: "Welcome" },
-  { id: "team", label: "Team" },
-  { id: "platform", label: "What is Ardra?" },
   { id: "problem", label: "Problem" },
+  { id: "platform", label: "What is Ardra?" },
   { id: "solution", label: "Solution" },
   { id: "market", label: "Market Size" },
-  { id: "referral", label: "Referral Flywheel" },
-  { id: "gtm", label: "Go-to-Market" },
   { id: "mvp", label: "MVP Results" },
   { id: "scaling", label: "Scalability" },
   { id: "scaling-chart", label: "Potential Impact" },
+  { id: "gtm", label: "Go-to-Market" },
+  { id: "team", label: "Team" },
   { id: "thanks", label: "Thanks" }
 ];
 
@@ -150,22 +150,31 @@ const dexLogos = [
 
 const gtmPhases = [
   {
-    title: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    timeline: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    title: "Points campaign kickoff",
+    timeline: "Week 1-2",
     tone: "emerald" as NeonTone,
-    points: ["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+    points: [
+      "Launch leaderboard and point multipliers for early farmers.",
+      "Deploy educational threads and AMAs to onboard reliable users."
+    ]
   },
   {
-    title: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    timeline: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    title: "100% rebate sprint",
+    timeline: "Week 3-4",
     tone: "crimson" as NeonTone,
-    points: ["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+    points: [
+      "Run a limited-time 100% fee rebate across partner Perp DEX venues.",
+      "Bundle quests that require sustained volume and risk controls."
+    ]
   },
   {
-    title: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    timeline: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    title: "KOL amplification",
+    timeline: "Week 5-6",
     tone: "cyan" as NeonTone,
-    points: ["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+    points: [
+      "Activate tiered KOL program with co-branded referral dashboards.",
+      "Push regional language drops to capture LATAM, EU, and Asia segments."
+    ]
   }
 ];
 const problemHighlights = [
@@ -215,40 +224,19 @@ const marketData = [
     month: "August",
     volume: "$761B",
     fees: "$228M",
-    opportunity: "$22.8M – $68.4M"
+    opportunity: "$22.8M - $68.4M"
   },
   {
     month: "September",
     volume: "$739B",
     fees: "$221M",
-    opportunity: "$22.1M – $66.3M"
+    opportunity: "$22.1M - $66.3M"
   },
   {
     month: "October",
     volume: "$1.049T",
     fees: "$314.7M",
-    opportunity: "$31.47M – $94.41M"
-  }
-];
-
-const referralBands = [
-  {
-    month: "August",
-    range: "$22.8M – $68.4M",
-    min: 22.8,
-    max: 68.4
-  },
-  {
-    month: "September",
-    range: "$22.1M – $66.3M",
-    min: 22.1,
-    max: 66.3
-  },
-  {
-    month: "October",
-    range: "$31.47M – $94.41M",
-    min: 31.47,
-    max: 94.41
+    opportunity: "$31.47M - $94.41M"
   }
 ];
 
@@ -271,6 +259,16 @@ const teamMembers = [
       "Production Engineering graduate and supply-chain specialist.",
       "Six years of experience in the crypto market.",
       "Web3 automation developer for the past three years."
+    ]
+  },
+  {
+    name: "Madbro",
+    role: "Marketing and BD",
+    image: madbroImage,
+    highlights: [
+      "Specialist in marketing and growth strategy across Web3 ecosystems.",
+      "Drives strategic partnerships and business development initiatives that unlock adoption.",
+      "Led market expansion and localization efforts that helped projects go global."
     ]
   }
 ];
@@ -419,9 +417,6 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
                 Perp DEX farming is expensive, risky, and fragmented for both traders and KOL partners.
               </h2>
-              <p className="text-base text-white/70 sm:text-lg">
-                Daily farming multiplies fees while manual execution invites costly mistakes. With dozens of venues, KOLs lose attribution the moment their community explores elsewhere.
-              </p>
               <ul className="space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-3">
                   <AlertTriangle className="mt-0.5 h-5 w-5 text-rose-400" />
@@ -468,9 +463,6 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-semibold text-white sm:text-4xl">
                 Ardra compresses farming costs, guards PnL, and unifies referrals in one automation hub.
               </h2>
-              <p className="text-base text-white/70 sm:text-lg">
-                Rebates flow back to traders, automation prevents wrecked ledgers, and a single referral link credits every integrated Perp DEX. Even a future Ardra airdrop turns regular trading into a dual-yield farm.
-              </p>
               <ul className="space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-400" />
@@ -546,77 +538,23 @@ const App: React.FC = () => {
             </div>
           </div>
         );
-      case "referral":
-        return (
-          <div className="flex flex-1 flex-col gap-10">
-            <div className="flex flex-col gap-4" data-animate>
-              <Badge variant="glow" className="bg-emerald-500/15 text-emerald-200">
-                Referral opportunity
-              </Badge>
-              <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-                Affiliate share layered on top of trading fees for partner programs.
-              </h2>
-              <p className="max-w-3xl text-base text-white/70 sm:text-lg">
-                This chart represents the market slice Ardra targets: each bar highlights potential affiliate revenue across top Perp DEX programs (10%-30% share models).
-              </p>
-            </div>
-            <NeonCard tone="emerald" className="space-y-6" data-animate>
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/55">
-                <span>Expected payout span</span>
-                <span>Reference: $100M</span>
-              </div>
-              <div className="space-y-5">
-                {referralBands.map((band) => {
-                  const referenceCap = 100;
-                  const minPercent = (band.min / referenceCap) * 100;
-                  const maxPercent = (band.max / referenceCap) * 100;
-                  const span = Math.max(6, maxPercent - minPercent);
-                  const offset = Math.min(minPercent, 100 - span);
-
-                  return (
-                    <div key={band.month} className="space-y-2">
-                      <div className="flex items-center justify-between text-sm text-white/70">
-                        <span className="font-medium text-white/85">{band.month}</span>
-                        <span>{band.range}</span>
-                      </div>
-                      <div className="relative h-3 overflow-hidden rounded-full bg-white/10">
-                        <div className="absolute inset-y-0 left-0 right-0 bg-white/5" />
-                        <div
-                          className="absolute inset-y-0 rounded-full bg-gradient-to-r from-emerald-400 via-cyan-300 to-emerald-500 shadow-[0_0_16px_rgba(16,185,129,0.45)]"
-                          style={{
-                            marginLeft: `${offset}%`,
-                            width: `${Math.min(span, 100)}%`
-                          }}
-                        />
-                      </div>
-                      <div className="flex justify-between text-xs uppercase tracking-[0.35em] text-white/50">
-                        <span>$0M</span>
-                        <span>$100M</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </NeonCard>
-          </div>
-        );
       case "gtm":
         return (
           <div className="flex flex-1 flex-col gap-8">
             <div className="space-y-4" data-animate>
               <Badge variant="glow" className="bg-cyan-500/15 text-cyan-200">
-                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                Go-to-market plan
               </Badge>
               <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                Simple acquisition engine: points, rebates, and trusted partners.
               </h2>
               <p className="max-w-3xl text-base text-white/70 sm:text-lg">
-                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                We orchestrate a tight launch calendar that spikes activity with points, rewards long-term usage, and brings KOL audiences into a measurable loop.
               </p>
             </div>
             <div className="grid gap-4 lg:grid-cols-3">
-              {gtmPhases.map((phase) => (
-                <NeonCard key={phase.title} tone={phase.tone} className="h-full" data-animate>
+              {gtmPhases.map((phase, index) => (
+                <NeonCard key={`${phase.title}-${index}`} tone={phase.tone} className="h-full" data-animate>
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/55">
                     <span>{phase.timeline}</span>
                     <span>Phase</span>
@@ -625,8 +563,8 @@ const App: React.FC = () => {
                     {phase.title}
                   </h3>
                   <ul className="space-y-2 text-sm text-white/70">
-                    {phase.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2">
+                    {phase.points.map((point, pointIndex) => (
+                      <li key={`${phase.title}-${pointIndex}`} className="flex items-start gap-2">
                         <span className="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-white/65" />
                         <span>{point}</span>
                       </li>
@@ -635,32 +573,15 @@ const App: React.FC = () => {
                 </NeonCard>
               ))}
             </div>
-            <div className="grid gap-4 md:grid-cols-3" data-animate>
+            <div className="grid gap-4" data-animate>
               <Card className="bg-white/6 p-6">
                 <CardHeader className="mb-2">
-                  <CardTitle className="text-lg text-white/90">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardTitle>
+                  <CardTitle className="text-lg text-white/90">User acquisition targets</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-white/70">
-                  <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                  <p className="text-xs uppercase tracking-[0.35em] text-white/50">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white/6 p-6">
-                <CardHeader className="mb-2">
-                  <CardTitle className="text-lg text-white/90">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-white/70">
-                  <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                  <p className="text-xs uppercase tracking-[0.35em] text-white/50">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white/6 p-6">
-                <CardHeader className="mb-2">
-                  <CardTitle className="text-lg text-white/90">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-white/70">
-                  <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                  <p className="text-xs uppercase tracking-[0.35em] text-white/50">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                  <p>Onboard 500 active farmers in the first six weeks via point boosts and referral stacking.</p>
+                  <p>Scale to 2,000 retained users by the end of the next quarter through continuous quests and KOL amplification.</p>
+                  <p className="text-xs uppercase tracking-[0.35em] text-white/50">Quarterly north star: 2,000 active traders</p>
                 </CardContent>
               </Card>
             </div>
@@ -899,8 +820,12 @@ const App: React.FC = () => {
               className="max-h-48 w-auto drop-shadow-[0_0_60px_rgba(34,211,238,0.55)]"
               data-animate
             />
-            <p className="font-[400] text-3xl text-white/90" style={{ fontFamily: "'Orbitron', sans-serif" }} data-animate>
-              Thanks
+            <p
+              className="font-[400] text-3xl text-white/90"
+              style={{ fontFamily: "'Orbitron', sans-serif" }}
+              data-animate
+            >
+              I keep your perp farming sharp—cheaper, faster, and ready to scale every Perp DEX run.
             </p>
           </div>
         );
@@ -957,7 +882,11 @@ const App: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-40" />
             <div className="absolute inset-[1px] rounded-[42px] bg-black/60" />
             <div ref={containerRef} className="relative z-10">
-              <main ref={slideRef} className="flex min-h-[70vh] flex-col gap-8 p-6 sm:p-10">
+              <main
+                key={currentSlide.id}
+                ref={slideRef}
+                className="flex min-h-[70vh] flex-col gap-8 p-6 sm:p-10"
+              >
                 {renderSlideContent()}
               </main>
             </div>
