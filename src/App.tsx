@@ -15,8 +15,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import mvpImage from "../Images/MVP.png";
 import clealjImage from "../Images/Team/Clealj.png";
-import bettercaulSolImage from "../Images/Team/BettercaulSol.jpg";
-import dorikImage from "../Images/Team/Dorik.jpg";
 import ardraLogo from "../Images/Ardra Assets/ArdraLogo.png";
 import apexLogo from "../Images/Support/Apex.png";
 import asterLogo from "../Images/Support/Aster.png";
@@ -273,26 +271,6 @@ const teamMembers = [
       "Production Engineering graduate and supply-chain specialist.",
       "Six years of experience in the crypto market.",
       "Web3 automation developer for the past three years."
-    ]
-  },
-  {
-    name: "BettercallSol",
-    role: "Advisor",
-    image: bettercaulSolImage,
-    highlights: [
-      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    ]
-  },
-  {
-    name: "Dorik",
-    role: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    image: dorikImage,
-    highlights: [
-      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     ]
   }
 ];
